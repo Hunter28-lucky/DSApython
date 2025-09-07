@@ -1,0 +1,3764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krish's DSA Hustle Notes 🚀 - Billionaire Code Empire</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: linear-gradient(135deg, #0f172a, #1e293b); 
+            color: #f1f5f9; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 30px; 
+            line-height: 1.6;
+        }
+        h1 { 
+            color: #06b6d4; 
+            text-align: center; 
+            font-size: 2.5em; 
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        h2 { 
+            color: #0891b2; 
+            font-size: 1.8em; 
+            border-bottom: 3px solid #dc2626; 
+            padding-bottom: 10px; 
+            margin-top: 30px;
+            font-weight: 600;
+        }
+        h3 { 
+            color: #f59e0b; 
+            font-size: 1.5em; 
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        ul, ol { 
+            list-style-type: disc; 
+            margin-left: 25px; 
+            color: #cbd5e1; 
+            padding-left: 10px;
+        }
+        li { margin-bottom: 8px; }
+        pre { 
+            background: #0f172a; 
+            padding: 20px; 
+            border-radius: 12px; 
+            overflow-x: auto; 
+            color: #10b981; 
+            font-size: 1.1em; 
+            border: 1px solid #334155;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-family: 'Courier New', monospace;
+        }
+        .vvi { 
+            color: #dc2626; 
+            font-weight: bold; 
+            background: #fee2e2; 
+            padding: 2px 6px; 
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .section { 
+            margin-bottom: 35px; 
+            border: 2px solid #334155; 
+            padding: 20px; 
+            border-radius: 15px; 
+            background: #1e293b; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .section:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+        }
+        .action { 
+            background: linear-gradient(90deg, #dc2626, #b91c1c); 
+            color: #fff; 
+            padding: 15px; 
+            text-align: center; 
+            font-weight: bold; 
+            border-radius: 12px; 
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 1.1em;
+        }
+        p { margin: 15px 0; }
+        code { 
+            background: #0f172a; 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+            font-family: 'Courier New', monospace; 
+            color: #10b981;
+        }
+        /* ADHD-friendly: Clear sections, high contrast, subtle animations for focus */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: fall 15s linear infinite;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+        }
+        .twinkle-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+        }
+        .shooting-star {
+            position: absolute;
+            width: 4px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            animation: shoot 3s linear infinite;
+            opacity: 0;
+        }
+        .particle {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: rgba(173, 216, 230, 0.6);
+            border-radius: 50%;
+            animation: float 20s linear infinite;
+        }
+        .nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+            animation: nebula-shift 30s ease-in-out infinite alternate;
+            z-index: -2;
+        }
+        @keyframes fall {
+            0% {
+                top: -10px;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(50vh) scale(1.2);
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+                transform: translateY(100vh) scale(0.5);
+            }
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        @keyframes shoot {
+            0% { opacity: 0; transform: translateX(-100px) translateY(-100px); }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(100vw) translateY(100vh); }
+        }
+        @keyframes float {
+            0% { top: 100vh; opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { top: -10px; opacity: 0; }
+        }
+        @keyframes nebula-shift {
+            0% { transform: translateX(-10px) translateY(-10px); }
+            100% { transform: translateX(10px) translateY(10px); }
+        }
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .stars {
+            --scroll-y: 0px;
+            transform: translateY(var(--scroll-y));
+            transition: transform 0.1s ease-out;
+        }
+        .nebula {
+            --scroll-y: 0px;
+            transform: translateY(calc(var(--scroll-y) * 0.3)) translateX(-10px);
+        }
+        /* Advanced Scroll Effects */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #06b6d4, #0891b2, #f59e0b);
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-to-top:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+        .floating-toc {
+            position: fixed;
+            top: 50%;
+            right: -320px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            padding: 20px;
+            border-radius: 20px 0 0 20px;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.3), 0 0 20px rgba(6, 182, 212, 0.1);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-50%) translateX(0);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 999;
+            max-height: 70vh;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-right: none;
+        }
+        .floating-toc.visible {
+            opacity: 1;
+            right: 0;
+            pointer-events: auto;
+            transform: translateY(-50%) translateX(0);
+            animation: navSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .search-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+            transition: all 0.3s ease;
+        }
+        .search-container.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .search-bar {
+            display: flex;
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 25px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 15px;
+            color: #f1f5f9;
+            font-size: 14px;
+            outline: none;
+        }
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+        .search-btn {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(6, 182, 212, 0.4);
+        }
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 10px;
+            margin-top: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+        .search-results.show {
+            display: block;
+        }
+        .search-result-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .search-result-item:hover {
+            background: rgba(6, 182, 212, 0.1);
+        }
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        .highlight {
+            background: rgba(245, 158, 11, 0.3);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .reading-stats {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+        .reading-stats.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+        .stat-label {
+            color: #cbd5e1;
+        }
+        .stat-value {
+            color: #06b6d4;
+            font-weight: bold;
+        }
+        .font-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 998;
+        }
+        .font-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50%;
+            color: #f1f5f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        .font-btn:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: scale(1.1);
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 998;
+        }
+        .theme-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+        .theme-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+        .theme-btn::before {
+            content: '🌙';
+            transition: transform 0.3s ease;
+        }
+        .theme-btn.dark::before {
+            content: '☀️';
+        }
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f1f5f9;
+        }
+        body.dark-mode .section {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark-mode pre {
+            background: #0f172a;
+        }
+        .code-playground {
+            position: relative;
+            margin: 10px 0;
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(6, 182, 212, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.9em;
+            color: #06b6d4;
+        }
+        .run-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+        .run-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+        }
+        .run-btn::before {
+            content: '▶';
+            margin-right: 5px;
+        }
+        .milestone-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            z-index: 2000;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: all 0.5s ease;
+            text-align: center;
+        }
+        .milestone-notification.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .xp-system {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            z-index: 1000;
+            font-size: 0.9em;
+            color: white;
+        }
+        .xp-bar {
+            width: 100px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        .xp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        .achievement-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            z-index: 2000;
+            text-align: center;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: all 0.5s ease;
+        }
+        .achievement-popup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .interactive-code {
+            position: relative;
+            margin: 15px 0;
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(6, 182, 212, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.9em;
+        }
+        .run-code-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+        }
+        .run-code-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+        }
+        .code-output {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-top: none;
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #10b981;
+            display: none;
+        }
+        .algorithm-visualizer {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        .viz-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .viz-btn {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .viz-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(6, 182, 212, 0.4);
+        }
+        .viz-canvas {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            font-family: 'Courier New', monospace;
+        }
+        .flashcard-system {
+            margin: 20px 0;
+        }
+        .flashcard {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+        .flashcard:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+        .flashcard.flipped {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        .flashcard-front, .flashcard-back {
+            display: none;
+        }
+        .flashcard-front.show, .flashcard-back.show {
+            display: block;
+        }
+        .flashcard-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .flashcard-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .flashcard-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .mind-map {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        .mind-map-canvas {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+        }
+        .concept-node {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+        }
+        .concept-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.5);
+        }
+        .concept-node.connected::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: #06b6d4;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .progress-heatmap {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 3px;
+            max-width: 200px;
+        }
+        .heatmap-day {
+            width: 20px;
+            height: 20px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .heatmap-day.active {
+            background: #06b6d4;
+            box-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+        }
+        .heatmap-day.active.intense {
+            background: #0891b2;
+            box-shadow: 0 0 12px rgba(6, 182, 212, 0.8);
+        }
+        .ai-assistant {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        .ai-assistant:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+        }
+        .ai-chat {
+            position: fixed;
+            bottom: 150px;
+            right: 20px;
+            width: 300px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            display: none;
+            z-index: 998;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .ai-chat.show {
+            display: block;
+        }
+        .chat-messages {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .chat-message {
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .chat-message.user {
+            background: rgba(6, 182, 212, 0.2);
+            margin-left: 20px;
+        }
+        .chat-message.ai {
+            background: rgba(245, 158, 11, 0.2);
+            margin-right: 20px;
+        }
+        .chat-input {
+            display: flex;
+            gap: 8px;
+        }
+        .chat-input input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 6px;
+            padding: 8px;
+            color: #f1f5f9;
+        }
+        .chat-input button {
+            background: #06b6d4;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .voice-synthesis {
+            position: fixed;
+            bottom: 20px;
+            left: 120px;
+            display: flex;
+            gap: 10px;
+            z-index: 998;
+        }
+        .voice-btn {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .voice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+        .voice-btn.playing {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            animation: pulse 1s infinite;
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .gesture-hint {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15, 23, 42, 0.9);
+            color: #f1f5f9;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            z-index: 1500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        .gesture-hint.show {
+            display: block;
+        }
+        .gesture-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .focus-timer {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            z-index: 998;
+        }
+        .timer-display {
+            font-size: 1.5em;
+            color: #06b6d4;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .timer-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .timer-btn {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .timer-btn:hover {
+            transform: scale(1.05);
+        }
+        .timer-btn.active {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+        .nav-trigger {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0.7;
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+        .nav-trigger:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+            animation: none;
+        }
+        .nav-trigger::before {
+            content: '🧭';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        .nav-trigger.active::before {
+            transform: rotate(180deg);
+        }
+        @keyframes gentlePulse {
+            0%, 100% { box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); }
+            50% { box-shadow: 0 4px 20px rgba(6, 182, 212, 0.5); }
+        }
+        .toc-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(239, 68, 68, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        .toc-close:hover {
+            background: rgba(239, 68, 68, 1);
+            transform: scale(1.1);
+        }
+        .toc-close::before {
+            content: '×';
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .floating-toc.collapsed {
+            right: -50px;
+            width: 50px;
+            padding: 20px 10px;
+        }
+        .floating-toc.collapsed ul {
+            display: none;
+        }
+        .floating-toc.collapsed h4 {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            margin: 0;
+            font-size: 0.8em;
+            transform: rotate(180deg);
+        }
+        .toc-toggle {
+            display: none; /* Hidden - using new trigger system */
+        }
+        .floating-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .floating-toc li {
+            margin: 8px 0;
+            transform: translateX(20px);
+            opacity: 0;
+            animation: slideInTOC 0.5s ease forwards;
+        }
+        .floating-toc li:nth-child(1) { animation-delay: 0.1s; }
+        .floating-toc li:nth-child(2) { animation-delay: 0.2s; }
+        .floating-toc li:nth-child(3) { animation-delay: 0.3s; }
+        .floating-toc li:nth-child(4) { animation-delay: 0.4s; }
+        .floating-toc li:nth-child(5) { animation-delay: 0.5s; }
+        .floating-toc li:nth-child(n+6) { animation-delay: 0.6s; }
+        @keyframes slideInTOC {
+            0% { transform: translateX(20px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        .floating-toc a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 8px;
+            display: block;
+        }
+        .floating-toc a:hover {
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateX(-5px);
+        }
+        .floating-toc a.active {
+            color: #06b6d4;
+            background: rgba(6, 182, 212, 0.2);
+            border-left: 3px solid #06b6d4;
+        }
+        .floating-toc h4 {
+            color: #06b6d4;
+            margin-bottom: 15px;
+            font-size: 1em;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+        .section.revealed {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(8, 145, 178, 0.05));
+            border-color: #06b6d4;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+        }
+        .text-reveal {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .text-reveal.visible {
+            animation: textReveal 2s ease forwards;
+        }
+        @keyframes textReveal {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        .rotating-border {
+            position: relative;
+            overflow: hidden;
+        }
+        .rotating-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #06b6d4, #0891b2, #f59e0b, #dc2626);
+            border-radius: 15px;
+            z-index: -1;
+            animation: rotateBorder 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .rotating-border.visible::before {
+            opacity: 1;
+        }
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Krish's DSA Notes - Hustle to Billionaire Empire! 💰</h1>
+    <p class="action">Yo Krish! Yeh site tera DSA weapon hai. Scan kar, code run kar, empire build kar. Action: Aaj 3 codes implement kar aur test kar. Unstoppable mode on! 🔥</p>
+
+    <!-- Focus Timer -->
+    <div class="focus-timer">
+        <div class="timer-display">25:00</div>
+        <div class="timer-controls">
+            <button class="timer-btn" onclick="startTimer(25)">25m</button>
+            <button class="timer-btn" onclick="startTimer(15)">15m</button>
+            <button class="timer-btn" onclick="startTimer(5)">5m</button>
+            <button class="timer-btn" id="timer-pause" onclick="pauseTimer()">Pause</button>
+            <button class="timer-btn" onclick="resetTimer()" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">Reset</button>
+        </div>
+    </div>
+
+    <!-- Voice Synthesis Controls -->
+    <div class="voice-synthesis">
+        <button class="voice-btn" id="voice-btn" onclick="toggleVoice()" title="Text-to-Speech">🔊</button>
+    </div>
+
+    <!-- Gesture Hint -->
+    <div class="gesture-hint" id="gesture-hint">
+        <div class="gesture-icon">👆</div>
+        <p>Try scrolling or using keyboard shortcuts!</p>
+    </div>
+
+    <div class="section">
+        <h2>📘 Data Structures Notes</h2>
+        
+        <h3>Q1. <span class="vvi">⭐ VVI</span> – What is Introduction to Data Structures?</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>A Data Structure (DS) is a systematic way to store, organize, and manage data so that it can be used efficiently.</li>
+            <li>It defines the relationship among data elements and the operations that can be performed on them.</li>
+            <li>Examples: Arrays, Stacks, Queues, Linked Lists, Trees, Graphs.</li>
+        </ul>
+
+        <h3>Q2. <span class="vvi">⭐ VVI</span> – What are the Operations on Data Structures?</h3>
+        <p>Answer:</p>
+        <ol>
+            <li>Traversing – Accessing each element exactly once.</li>
+            <li>Searching – Finding the location of an element.</li>
+            <li>Insertion – Adding new elements.</li>
+            <li>Deletion – Removing elements.</li>
+            <li>Sorting – Arranging elements in order.</li>
+            <li>Merging – Combining two data structures.</li>
+        </ol>
+
+        <h3>Q3. <span class="vvi">⭐ VVI</span> – Classification of Data Structures</h3>
+        <p>Answer:</p>
+        <ol>
+            <li>Primitive Data Structures
+                <ul>
+                    <li>Basic data types available in programming languages.</li>
+                    <li>Examples: int, float, char, boolean.</li>
+                </ul>
+            </li>
+            <li>Non-Primitive Data Structures
+                <ul>
+                    <li>More complex data structures built from primitive ones.</li>
+                    <li>Examples: Arrays, Lists, Stacks, Queues, Linked Lists, Trees, Graphs.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Q4. Characteristics of Data Structures</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Correctness – Structure should allow correct operations.</li>
+            <li>Time Complexity – Efficiency of execution.</li>
+            <li>Space Complexity – Memory consumption.</li>
+            <li>Reusability – Can be reused in different applications.</li>
+            <li>Abstraction – Hides low-level details.</li>
+        </ul>
+
+        <h3>Q5. Primitive Types – Primitive Data Structures (with Python examples)</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Definition: Basic built-in types in Python.</li>
+            <li>Examples:</li>
+        </ul>
+        <pre><code>a = 10        # int
+b = 3.14      # float
+c = 'A'       # char (string in Python)
+d = True      # boolean</code></pre>
+
+        <h3>Q6. Non-Primitive Types – Non-Primitive Data Structures (with Python examples)</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Definition: Derived or user-defined structures made using primitive data types.</li>
+            <li>Examples:</li>
+        </ul>
+        <pre><code>arr = [1, 2, 3, 4]            # Array (List in Python)
+stack = []                    # Stack
+stack.append(10)              # Push
+stack.pop()                   # Pop
+
+queue = [1,2,3]               # Queue
+queue.append(4)               # Enqueue
+queue.pop(0)                  # Dequeue
+
+# Dictionary Example
+student = {"name": "Krish", "age": 20}</code></pre>
+
+        <!-- Interactive Code Playground -->
+        <div class="interactive-code">
+            <div class="code-header">
+                <span>🐍 Try Python Code</span>
+                <button class="run-code-btn" onclick="runCode(this)">▶ Run Code</button>
+            </div>
+            <pre><code class="code-block"># Try editing this Python code!
+numbers = [1, 2, 3, 4, 5]
+print("Original array:", numbers)
+
+# Add an element
+numbers.append(6)
+print("After append:", numbers)
+
+# Remove an element
+numbers.pop()
+print("After pop:", numbers)
+
+# Access by index
+print("Element at index 2:", numbers[2])</code></pre>
+            <div class="code-output" id="code-output"></div>
+        </div>
+
+        <!-- Mind Map -->
+        <div class="mind-map">
+            <h4 style="color: #06b6d4; margin-bottom: 15px;">🗺️ Data Structures Mind Map</h4>
+            <div class="mind-map-canvas">
+                <div style="text-align: center;">
+                    <div class="concept-node" style="position: relative;">Data Structures</div>
+                    <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                        <div class="concept-node">Primitive</div>
+                        <div class="concept-node">Non-Primitive</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                        <div class="concept-node">int, float, char</div>
+                        <div class="concept-node">Linear</div>
+                        <div class="concept-node">Non-Linear</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Heatmap -->
+        <div class="progress-heatmap">
+            <h4 style="color: #f59e0b; margin-bottom: 10px;">📅 Study Streak</h4>
+            <div class="heatmap-grid" id="heatmap-grid">
+                <!-- Heatmap will be populated by JS -->
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #cbd5e1;">Keep studying to build your streak!</p>
+        </div>
+
+        <h3>Q7. <span class="vvi">⭐ VVI</span> – Linear and Nonlinear Data Structures (with Python examples)</h3>
+        <p>Answer:</p>
+        <ol>
+            <li>Linear Data Structures: Elements arranged sequentially.
+                <ul>
+                    <li>Examples: Array, Stack, Queue, Linked List.</li>
+                </ul>
+            </li>
+        </ol>
+        <pre><code>arr = [10, 20, 30]     # Array
+stack = [ ]            # Stack
+stack.append(5)        # Push
+stack.pop()            # Pop</code></pre>
+        <ol start="7">
+            <li>Non-Linear Data Structures: Elements connected in hierarchy/graph.
+                <ul>
+                    <li>Examples: Trees, Graphs.</li>
+                </ul>
+            </li>
+        </ol>
+        <pre><code>tree = {"A": ["B", "C"], "B": ["D", "E"], "C": ["F"]}  # Tree
+graph = {"A": ["B","C"], "B": ["A","D"], "C": ["A"], "D": ["B"]} # Graph</code></pre>
+
+        <h3>Q8. Introduction to Abstractions in Data Structures</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Abstraction: Hiding implementation details and showing only essential features.</li>
+            <li>Allows user to focus on what a DS does instead of how it works internally.</li>
+        </ul>
+
+        <h3>Q9. <span class="vvi">⭐ VVI</span> – What is Abstract Data Type (ADT)?</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Abstract Data Type (ADT): A mathematical model of data types, defined by its behavior (operations), not implementation.</li>
+            <li>Examples: Stack, Queue, List, Map, Set.</li>
+        </ul>
+
+        <h3>Q10. Examples of Abstract Data Types</h3>
+        <p>Answer:</p>
+        <ol>
+            <li>Student ADT: Attributes → Roll No, Name, Marks.</li>
+            <li>Date ADT: Attributes → Day, Month, Year.</li>
+            <li>Employee ADT: Attributes → EmpID, Name, Salary.</li>
+        </ol>
+
+        <h3>Q11. <span class="vvi">⭐ VVI</span> – Defining an ADT</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>ADT is defined by:
+                <ul>
+                    <li>Data objects (data being stored).</li>
+                    <li>Operations (functions on the data).</li>
+                </ul>
+            </li>
+            <li>Example: Stack ADT
+                <ul>
+                    <li>Data: list of elements.</li>
+                    <li>Operations: Push, Pop, Peek, IsEmpty, IsFull.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Q12. Using an ADT (Python Example: Stack)</h3>
+        <p>Answer:</p>
+        <pre><code>class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def peek(self):
+        return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+# Usage
+s = Stack()
+s.push(10)
+s.push(20)
+print(s.pop())   # 20</code></pre>
+
+        <h3>Q13. Implementing the ADT (Queue Example in Python)</h3>
+        <p>Answer:</p>
+        <pre><code>class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        return self.items.pop(0)
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+# Usage
+q = Queue()
+q.enqueue(5)
+q.enqueue(10)
+print(q.dequeue())   # 5</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Algorithm Analysis Notes</h2>
+        
+        <h3>Q1. <span class="vvi">⭐ VVI</span> – What is Algorithm Analysis?</h3>
+        <ul>
+            <li>Algorithm Analysis is the process of determining the efficiency of an algorithm in terms of time and space.</li>
+            <li>It helps compare algorithms and choose the most optimal one.</li>
+        </ul>
+
+        <h3>Q2. <span class="vvi">⭐ VVI</span> – What is Space Complexity?</h3>
+        <ul>
+            <li>The amount of memory required by an algorithm to run to completion.</li>
+            <li>Components:
+                <ol>
+                    <li>Fixed Part → Independent of input size.</li>
+                    <li>Variable Part → Depends on input size.</li>
+                </ol>
+            </li>
+            <li>Formula: S(P) = C + Sp(I)</li>
+            <li>Example (Python)</li>
+        </ul>
+        <pre><code>def sum_array(arr):
+    total = 0
+    for i in arr:
+        total += i
+    return total
+# Space Complexity → O(n)</code></pre>
+
+        <h3>Q3. <span class="vvi">⭐ VVI</span> – What is Time Complexity?</h3>
+        <ul>
+            <li>The total time taken by an algorithm to execute completely.</li>
+            <li>Expressed as function of input size n.</li>
+            <li>Types:
+                <ol>
+                    <li>Best Case (Ω) → Minimum time.</li>
+                    <li>Worst Case (O) → Maximum time.</li>
+                    <li>Average Case (Θ) → Expected time.</li>
+                </ol>
+            </li>
+            <li>Example (Python)</li>
+        </ul>
+        <pre><code>def search(arr, x):
+    for i in arr:
+        if i == x:
+            return True
+    return False
+# Best Case → O(1)
+# Worst Case → O(n)
+# Average Case → Θ(n)</code></pre>
+
+        <h3>Q4. What is Run Time Analysis of Algorithms?</h3>
+        <ul>
+            <li>Studies how running time grows with input size.</li>
+            <li>Ignores machine specifications, focuses on algorithm behavior.</li>
+            <li>Done using asymptotic notations.</li>
+        </ul>
+
+        <h3>Q5. <span class="vvi">⭐ VVI</span> – What are Asymptotic Notations?</h3>
+        <ul>
+            <li>Describe growth rate of an algorithm.</li>
+            <li>Three main types:
+                <ol>
+                    <li>Big-O (O) → Worst case.</li>
+                    <li>Omega (Ω) → Best case.</li>
+                    <li>Theta (Θ) → Average case.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>Q6. <span class="vvi">⭐ VVI</span> – Big-O Notation</h3>
+        <ul>
+            <li>Gives upper bound (worst-case performance).</li>
+            <li>Formal: f(n) = O(g(n)) if ∃ c>0, n₀>0 such that f(n) ≤ c·g(n), ∀ n ≥ n₀.</li>
+            <li>Example (Python)</li>
+        </ul>
+        <pre><code>def print_n(n):
+    for i in range(n):
+        print(i)
+# Time Complexity → O(n)</code></pre>
+
+        <h3>Q7. <span class="vvi">⭐ VVI</span> – Omega (Ω) Notation</h3>
+        <ul>
+            <li>Gives lower bound (best-case performance).</li>
+            <li>Formal: f(n) = Ω(g(n)) if ∃ c>0, n₀>0 such that f(n) ≥ c·g(n), ∀ n ≥ n₀.</li>
+            <li>Example: Linear search best case → Ω(1).</li>
+        </ul>
+
+        <h3>Q8. <span class="vvi">⭐ VVI</span> – Theta (Θ) Notation</h3>
+        <ul>
+            <li>Gives tight bound (average-case performance).</li>
+            <li>Formal: f(n) = Θ(g(n)) if ∃ c₁, c₂>0, n₀>0 such that c₁g(n) ≤ f(n) ≤ c₂g(n), ∀ n ≥ n₀.</li>
+            <li>Example: Linear search average case → Θ(n).</li>
+        </ul>
+
+        <h3>Q9. <span class="vvi">⭐⭐</span> Common Time Complexities Table</h3>
+        <table border="1" style="width:100%; border-collapse: collapse; color: #ccc;">
+            <tr><th>Complexity</th><th>Name</th><th>Example</th></tr>
+            <tr><td>O(1)</td><td>Constant</td><td>Accessing array element</td></tr>
+            <tr><td>O(log n)</td><td>Logarithmic</td><td>Binary Search</td></tr>
+            <tr><td>O(n)</td><td>Linear</td><td>Linear Search</td></tr>
+            <tr><td>O(n log n)</td><td>Linearithmic</td><td>Merge Sort, Quick Sort (avg)</td></tr>
+            <tr><td>O(n²)</td><td>Quadratic</td><td>Bubble Sort, Insertion Sort</td></tr>
+            <tr><td>O(2ⁿ)</td><td>Exponential</td><td>Recursive Fibonacci</td></tr>
+            <tr><td>O(n!)</td><td>Factorial</td><td>Traveling Salesman brute</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Algorithm Design Strategies</h2>
+        
+        <h3>Q1. <span class="vvi">⭐ VVI</span> – What is Brute Force Strategy?</h3>
+        <ul>
+            <li>Brute Force is the simplest algorithm design strategy.</li>
+            <li>It directly tries all possible solutions until the correct one is found.</li>
+            <li>Examples: Bubble Sort, Selection Sort, Linear Search.</li>
+        </ul>
+
+        <h3>Q2. Explain Bubble Sort (Brute Force).</h3>
+        <ul>
+            <li>Bubble Sort repeatedly compares adjacent elements and swaps them if they are in the wrong order.</li>
+            <li>Time Complexity: O(n²)</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr</code></pre>
+
+        <h3>Q3. Explain Selection Sort (Brute Force).</h3>
+        <ul>
+            <li>Selection Sort repeatedly selects the smallest element from the unsorted part and places it at the beginning.</li>
+            <li>Time Complexity: O(n²)</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr</code></pre>
+
+        <h3>Q4. Explain Linear Search (Brute Force).</h3>
+        <ul>
+            <li>Linear Search checks each element of the list until the desired element is found.</li>
+            <li>Time Complexity: O(n)</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def linear_search(arr, x):
+    for i in range(len(arr)):
+        if arr[i] == x:
+            return i
+    return -1</code></pre>
+
+        <h3>Q5. <span class="vvi">⭐ VVI</span> – What is Decrease and Conquer Strategy?</h3>
+        <ul>
+            <li>Decrease and Conquer reduces the problem size by a small amount (usually 1) and solves recursively/iteratively.</li>
+            <li>Example: Insertion Sort.</li>
+        </ul>
+
+        <h3>Q6. Explain Insertion Sort (Decrease and Conquer).</h3>
+        <ul>
+            <li>Insertion Sort builds a sorted array one element at a time by inserting each new element into its correct position.</li>
+            <li>Time Complexity: O(n²)</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = key
+    return arr</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Algorithm Design Strategies (Continued)</h2>
+        
+        <h3>Q1. <span class="vvi">⭐ VVI</span> – What is Divide and Conquer Strategy?</h3>
+        <ul>
+            <li>Divide and Conquer breaks a problem into smaller subproblems, solves them recursively, and then combines their solutions.</li>
+            <li>Steps:
+                <ol>
+                    <li>Divide → Split the problem into subproblems.</li>
+                    <li>Conquer → Solve the subproblems.</li>
+                    <li>Combine → Merge solutions.</li>
+                </ol>
+            </li>
+            <li>Examples: Merge Sort, Quick Sort, Binary Search.</li>
+        </ul>
+
+        <h3>Q2. Explain Merge Sort (Divide and Conquer).</h3>
+        <ul>
+            <li>Merge Sort divides the array into halves, sorts each half, and merges them.</li>
+            <li>Time Complexity: O(n log n)</li>
+            <li>Space Complexity: O(n)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr)//2
+        L = arr[:mid]
+        R = arr[mid:]
+
+        merge_sort(L)
+        merge_sort(R)
+
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+    return arr</code></pre>
+
+        <h3>Q3. Explain Quick Sort (Divide and Conquer).</h3>
+        <ul>
+            <li>Quick Sort chooses a pivot, partitions the array so that elements smaller go left and larger go right, then sorts recursively.</li>
+            <li>Time Complexity: O(n log n) average, O(n²) worst-case.</li>
+            <li>Space Complexity: O(log n)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr)//2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)</code></pre>
+
+        <h3>Q4. Explain Binary Search (Divide and Conquer).</h3>
+        <ul>
+            <li>Binary Search works on sorted arrays.</li>
+            <li>It repeatedly divides the array into halves until the element is found.</li>
+            <li>Time Complexity: O(log n)</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code>def binary_search(arr, x):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1</code></pre>
+
+        <h3>Q5. <span class="vvi">⭐ VVI</span> – What is Dynamic Programming (DP)?</h3>
+        <ul>
+            <li>DP is an optimization technique where problems are solved by breaking them into overlapping subproblems and storing results to avoid recomputation.</li>
+            <li>Example: Fibonacci sequence.</li>
+            <li>Python Example</li>
+        </ul>
+        <pre><code># DP Fibonacci
+def fib(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fib(n-1, memo) + fib(n-2, memo)
+    return memo[n]
+# Time Complexity: O(n)
+# Space Complexity: O(n)</code></pre>
+
+        <h3>Q6. What is Backtracking? (Concepts Only)</h3>
+        <ul>
+            <li>Backtracking is a trial-and-error algorithmic technique where we build a solution step by step and backtrack if the current solution is invalid.</li>
+            <li>Used in: N-Queens Problem, Sudoku Solver, Rat in a Maze, Graph Coloring.</li>
+            <li>Implemented mostly using recursion.</li>
+        </ul>
+
+        <h3>Q7. What is Greedy Strategy? (Concepts Only)</h3>
+        <ul>
+            <li>Greedy algorithms build solutions step by step, choosing the locally optimal choice at each step, expecting it will lead to the global optimum.</li>
+            <li>Used in: Kruskal’s Algorithm, Prim’s Algorithm, Huffman Coding, Fractional Knapsack.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Linear vs Nonlinear Data Structures</h2>
+        
+        <h3>Q1. <span class="vvi">⭐ VVI</span> – Linear (Arrays) vs Nonlinear (Pointer Structures)</h3>
+        
+        <!-- Interactive Algorithm Visualizer -->
+        <div class="algorithm-visualizer">
+            <h4 style="color: #06b6d4; margin-bottom: 10px;">🔍 Array vs Linked List Visualizer</h4>
+            <div class="viz-controls">
+                <button class="viz-btn" onclick="showArrayDemo()">Show Array</button>
+                <button class="viz-btn" onclick="showLinkedListDemo()">Show Linked List</button>
+                <button class="viz-btn" onclick="compareOperations()">Compare Operations</button>
+            </div>
+            <div class="viz-canvas" id="array-viz-canvas">
+                <div style="text-align: center;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">📊</div>
+                    <p>Click buttons above to visualize data structures!</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Linear Structures (Arrays)</p>
+        <ul>
+            <li>Elements arranged sequentially in memory.</li>
+            <li>Access is direct (indexing).</li>
+            <li>Run Time: Fast for access → O(1), slow for insertion/deletion → O(n).</li>
+            <li>Space: Fixed size, contiguous memory.</li>
+            <li>Example: Arrays, Stacks, Queues.</li>
+            <li>Best Use: When size of data is known and frequent access by index is required.</li>
+        </ul>
+        <p>Nonlinear Structures (Pointer-based)</p>
+        <ul>
+            <li>Elements connected through links/pointers.</li>
+            <li>Access requires traversal.</li>
+            <li>Run Time: Access O(n), insertion/deletion faster than arrays → O(1) at beginning/middle.</li>
+            <li>Space: Extra memory for storing pointers.</li>
+            <li>Example: Linked List, Trees, Graphs.</li>
+            <li>Best Use: When size of data is dynamic and frequent insertions/deletions are required.</li>
+        </ul>
+
+        <!-- Flashcard System -->
+        <div class="flashcard-system">
+            <h4 style="color: #f59e0b; margin-bottom: 15px;">🃏 Quick Review: Array vs Linked List</h4>
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-front show">
+                    <h5>What is the main difference between Arrays and Linked Lists?</h5>
+                </div>
+                <div class="flashcard-back">
+                    <p>Arrays use contiguous memory with direct access (O(1)), while Linked Lists use dynamic memory with pointer-based access (O(n)). Arrays are better for random access, Linked Lists for frequent insertions/deletions.</p>
+                </div>
+            </div>
+            <div class="flashcard-nav">
+                <button class="flashcard-btn" onclick="previousCard()">← Previous</button>
+                <span id="card-counter">1 / 3</span>
+                <button class="flashcard-btn" onclick="nextCard()">Next →</button>
+            </div>
+        </div>
+
+        <h3>Q2. Introduction to Linked List</h3>
+        <ul>
+            <li>Elements arranged sequentially in memory.</li>
+            <li>Access is direct (indexing).</li>
+            <li>Run Time: Fast for access → O(1), slow for insertion/deletion → O(n).</li>
+            <li>Space: Fixed size, contiguous memory.</li>
+            <li>Example: Arrays, Stacks, Queues.</li>
+            <li>Best Use: When size of data is known and frequent access by index is required.</li>
+        </ul>
+        <p>Nonlinear Structures (Pointer-based)</p>
+        <ul>
+            <li>Elements connected through links/pointers.</li>
+            <li>Access requires traversal.</li>
+            <li>Run Time: Access O(n), insertion/deletion faster than arrays → O(1) at beginning/middle.</li>
+            <li>Space: Extra memory for storing pointers.</li>
+            <li>Example: Linked List, Trees, Graphs.</li>
+            <li>Best Use: When size of data is dynamic and frequent insertions/deletions are required.</li>
+        </ul>
+
+        <h3>Q2. Introduction to Linked List</h3>
+        <ul>
+            <li>A Linked List is a linear collection of nodes where each node contains:
+                <ol>
+                    <li>Data (value).</li>
+                    <li>Pointer (link) to the next node.</li>
+                </ol>
+            </li>
+            <li>Unlike arrays, linked lists use dynamic memory allocation.</li>
+            <li>Types:
+                <ul>
+                    <li>Singly Linked List.</li>
+                    <li>Doubly Linked List.</li>
+                    <li>Circular Linked List.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Q3. Python Example – Singly Linked List</h3>
+        <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+
+# Usage
+ll = LinkedList()
+ll.insert("Song3")
+ll.insert("Song2")
+ll.insert("Song1")
+ll.display()
+# Output: Song1 -> Song2 -> Song3 -></code></pre>
+
+        <h3>Q4. Examples to Explain Linked List Concept</h3>
+        <ul>
+            <li>Image Viewer: Next and Previous buttons use doubly linked list.</li>
+            <li>Music Player Playlist: Songs connected in sequence, easy to move forward/backward.</li>
+            <li>Web Browser History: Forward and Back navigation uses linked list.</li>
+        </ul>
+
+        <h3>Q5. Applications of Linked Lists</h3>
+        <ul>
+            <li>Dynamic memory allocation.</li>
+            <li>Implementation of stacks, queues, graphs, hash tables.</li>
+            <li>Undo/Redo functionality in editors.</li>
+            <li>File system directory management.</li>
+            <li>Real-time applications like playlists, image galleries, navigations.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Singly Linked List</h2>
+        <ol>
+            <li>Introduction
+                <p>A singly linked list is a linear data structure where each element (called a node) contains:</p>
+                <ul>
+                    <li>Data → the actual value.</li>
+                    <li>Pointer (next) → reference to the next node in the list.</li>
+                </ul>
+                <p>Unlike arrays, memory allocation is dynamic, and insertion/deletion is more efficient.</p>
+            </li>
+            <li>Node Structure
+                <p>Each node has two parts:</p>
+                <ol>
+                    <li>Data</li>
+                    <li>Next pointer</li>
+                </ol>
+                <p>📌 Python Example: Creating a Node</p>
+                <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data  # store data
+        self.next = None  # initialize next as null</code></pre>
+            </li>
+            <li>Traversing the Nodes
+                <p>Traversing = Visiting each node one by one until the end.</p>
+                <p>📌 Example: Traversal</p>
+                <pre><code>def traverse(head):
+    current = head
+    while current:
+        print(current.data, end=" -> ")
+        current = current.next
+    print("None")</code></pre>
+            </li>
+            <li>Searching for a Node
+                <p>We look for a specific value in the linked list.</p>
+                <p>📌 Example: Searching</p>
+                <pre><code>def search(head, key):
+    current = head
+    while current:
+        if current.data == key:
+            return True
+        current = current.next
+    return False</code></pre>
+            </li>
+            <li>Prepending Nodes (Insert at Beginning)
+                <p>New node becomes the new head.</p>
+                <p>📌 Example</p>
+                <pre><code>def prepend(head, data):
+    new_node = Node(data)
+    new_node.next = head
+    return new_node</code></pre>
+            </li>
+            <li>Removing Nodes
+                <p>Remove a node by updating pointers.</p>
+                <p>📌 Example: Remove Node by Value</p>
+                <pre><code>def remove(head, key):
+    if head is None:
+        return None
+    
+    if head.data == key:
+        return head.next  # remove first node
+    
+    current = head
+    while current.next:
+        if current.next.data == key:
+            current.next = current.next.next
+            return head
+        current = current.next
+    return head</code></pre>
+            </li>
+            <li>Linked List Iterators
+                <p>Python iterator allows us to use for loop on the linked list.</p>
+                <p>📌 Iterator Example</p>
+                <pre><code>class LinkedListIterator:
+    def __init__(self, head):
+        self.current = head
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.current:
+            data = self.current.data
+            self.current = self.current.next
+            return data
+        else:
+            raise StopIteration
+# Usage:
+head = Node(10)
+head.next = Node(20)
+head.next.next = Node(30)
+
+for val in LinkedListIterator(head):
+    print(val)</code></pre>
+            </li>
+        </ol>
+        <h3>Applications of Singly Linked List</h3>
+        <ol>
+            <li>Image Viewer → forward navigation (next pointer).</li>
+            <li>Music Player Playlist → play songs sequentially.</li>
+            <li>Undo feature in editors → store previous actions.</li>
+            <li>Dynamic memory allocation → no fixed size like arrays.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Doubly Linked List (DLL)</h2>
+        <ol>
+            <li>Introduction
+                <ul>
+                    <li>A doubly linked list is similar to a singly linked list, but here each node has two pointers:
+                        <ol>
+                            <li>prev → points to the previous node</li>
+                            <li>next → points to the next node</li>
+                        </ol>
+                    </li>
+                    <li>👉 This allows bidirectional traversal (forward and backward).</li>
+                    <li>📌 Examples in real life:</li>
+                    <ul>
+                        <li>Image Viewer → Next/Previous image navigation.</li>
+                        <li>Music Player Playlist → Forward/Backward song navigation.</li>
+                        <li>Undo/Redo functionality in text editors.</li>
+                    </ul>
+                </ul>
+            </li>
+            <li>Structure of DLL Node
+                <p>📌 Python Example</p>
+                <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data   # store data
+        self.prev = None   # pointer to previous node
+        self.next = None   # pointer to next node</code></pre>
+            </li>
+            <li>List Operations
+                <p>(a) Create DLL</p>
+                <p>We create the first node (head).</p>
+                <pre><code>head = Node(10)</code></pre>
+                <p>(b) Appending Nodes (Insert at End)</p>
+                <p>We add a node at the end of the DLL.</p>
+                <pre><code>def append(head, data):
+    new_node = Node(data)
+    if head is None:
+        return new_node
+    
+    current = head
+    while current.next:
+        current = current.next
+    
+    current.next = new_node
+    new_node.prev = current
+    return head</code></pre>
+                <p>(c) Delete a Node</p>
+                <p>Remove a node (update prev and next).</p>
+                <pre><code>def delete(head, key):
+    current = head
+    while current:
+        if current.data == key:
+            if current.prev:
+                current.prev.next = current.next
+            if current.next:
+                current.next.prev = current.prev
+            if current == head:  # deleting head
+                head = current.next
+            return head
+        current = current.next
+    return head</code></pre>
+                <p>(d) Search in DLL</p>
+                <pre><code>def search(head, key):
+    current = head
+    while current:
+        if current.data == key:
+            return True
+        current = current.next
+    return False</code></pre>
+            </li>
+            <li>Traversal
+                <p>* Forward Traversal</p>
+                <pre><code>def traverse_forward(head):
+    current = head
+    while current:
+        print(current.data, end=" <-> ")
+        last = current
+        current = current.next
+    print("None")</code></pre>
+                <p>* Backward Traversal</p>
+                <pre><code>def traverse_backward(tail):
+    current = tail
+    while current:
+        print(current.data, end=" <-> ")
+        current = current.prev
+    print("None")</code></pre>
+            </li>
+        </ol>
+        <h3>Summary – Why DLL is powerful?</h3>
+        <ul>
+            <li>✅ Can move forward and backward</li>
+            <li>✅ Efficient in deletion/insertion compared to arrays</li>
+            <li>✅ Useful in apps like browsers (back/forward), music players, and editors</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Circular Linked List (CLL)</h2>
+        
+        <h3>Q1. What is a Circular Linked List? <span class="vvi">⭐VVI</span></h3>
+        <p>A Circular Linked List is a type of linked list in which the last node points back to the first node, forming a circle. It can be:</p>
+        <ul>
+            <li>Singly Circular Linked List → only next pointer.</li>
+            <li>Doubly Circular Linked List → next and prev pointers.</li>
+        </ul>
+        <p>Applications: Round-robin scheduling, multiplayer games, playlist loops.</p>
+
+        <h3>Q2. Structure of a Node in Circular Linked List</h3>
+        <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None</code></pre>
+
+        <h3>Q3. Appending Nodes in CLL</h3>
+        <pre><code>def append(head, data):
+    new_node = Node(data)
+    if head is None:
+        new_node.next = new_node
+        return new_node
+    current = head
+    while current.next != head:
+        current = current.next
+    current.next = new_node
+    new_node.next = head
+    return head</code></pre>
+
+        <h3>Q4. Deleting a Node in CLL</h3>
+        <pre><code>def delete(head, key):
+    if head is None:
+        return None
+    current = head
+    prev = None
+    while True:
+        if current.data == key:
+            if prev:
+                prev.next = current.next
+            else:
+                temp = head
+                while temp.next != head:
+                    temp = temp.next
+                head = current.next
+                temp.next = head
+            return head
+        prev = current
+        current = current.next
+        if current == head:
+            break
+    return head</code></pre>
+
+        <h3>Q5. Iterating a Circular Linked List</h3>
+        <pre><code>def iterate(head):
+    if head is None:
+        return
+    current = head
+    while True:
+        print(current.data, end=" -> ")
+        current = current.next
+        if current == head:
+            break
+    print("(back to head)")</code></pre>
+
+        <h3>Q6. Advantages of CLL</h3>
+        <ul>
+            <li>No null pointer; continuous loop.</li>
+            <li>Efficient in round-based tasks.</li>
+            <li>Supports infinite traversal.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Stack (LIFO – Last In First Out)</h2>
+        
+        <h3>Q1. What is a Stack? <span class="vvi">⭐VVI</span></h3>
+        <p>A stack is a linear data structure that follows the LIFO (Last In First Out) principle.</p>
+        <p>The last element inserted is the first one to be removed.</p>
+        <p>Examples in real life:</p>
+        <ul>
+            <li>Reversing a word (last character added comes out first).</li>
+            <li>Evaluating mathematical expressions.</li>
+            <li>Message box (latest message shown first).</li>
+        </ul>
+
+        <h3>Q2. Stack Implementation in Python (Push, Pop, Display)</h3>
+        <pre><code>class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, data):
+        self.stack.append(data)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        return "Stack Underflow"
+
+    def display(self):
+        print(self.stack[::-1])
+
+    def is_empty(self):
+        return len(self.stack) == 0</code></pre>
+
+        <h3>Q3. Example – Reversing a Word using Stack</h3>
+        <pre><code>def reverse_word(word):
+    s = Stack()
+    for ch in word:
+        s.push(ch)
+    rev = ""
+    while not s.is_empty():
+        rev += s.pop()
+    return rev
+
+print(reverse_word("HELLO"))  # Output: OLLEH</code></pre>
+
+        <h3>Q4. Stack Application – Balanced Delimiters <span class="vvi">⭐VVI</span></h3>
+        <p>Problem: Check if brackets are balanced in an expression.</p>
+        <pre><code>def is_balanced(expr):
+    s = Stack()
+    for ch in expr:
+        if ch in "({[":
+            s.push(ch)
+        elif ch in ")}]":
+            if s.is_empty():
+                return False
+            top = s.pop()
+            if (ch == ")" and top != "(") or \
+               (ch == "}" and top != "{") or \
+               (ch == "]" and top != "["):
+                return False
+    return s.is_empty()
+
+print(is_balanced("{[()]}"))  # Output: True</code></pre>
+
+        <h3>Q5. Stack Application – Evaluating Postfix Expression <span class="vvi">⭐VVI</span></h3>
+        <pre><code>def evaluate_postfix(expr):
+    s = Stack()
+    for ch in expr.split():
+        if ch.isdigit():
+            s.push(int(ch))
+        else:
+            b = s.pop()
+            a = s.pop()
+            if ch == "+":
+                s.push(a + b)
+            elif ch == "-":
+                s.push(a - b)
+            elif ch == "*":
+                s.push(a * b)
+            elif ch == "/":
+                s.push(a / b)
+    return s.pop()
+
+print(evaluate_postfix("5 1 2 + 4 * + 3 -"))  # Output: 14</code></pre>
+
+        <h3>Q6. Summary – Applications of Stack</h3>
+        <ul>
+            <li>Reversing words.</li>
+            <li>Undo/Redo in text editors.</li>
+            <li>Balanced parentheses check.</li>
+            <li>Expression evaluation (postfix, prefix).</li>
+            <li>Function call stack in programming.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Queue (FIFO – First In First Out)</h2>
+        
+        <h3>Q1. What is a Queue? <span class="vvi">⭐VVI</span></h3>
+        <p>A queue is a linear data structure that follows the FIFO (First In First Out) principle.</p>
+        <p>The first element inserted is the first one to be removed.</p>
+        <p>Examples in real life:</p>
+        <ul>
+            <li>Ticket counter line.</li>
+            <li>Print queue in printers.</li>
+            <li>Task scheduling in operating systems.</li>
+        </ul>
+
+        <h3>Q2. Queue Implementation in Python (Enqueue, Dequeue, Display)</h3>
+        <pre><code>class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, data):
+        self.queue.append(data)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        return "Queue Underflow"
+
+    def display(self):
+        print(self.queue)
+
+    def is_empty(self):
+        return len(self.queue) == 0</code></pre>
+
+        <h3>Q3. Example – Using Queue (Message Sending Order)</h3>
+        <pre><code>q = Queue()
+q.enqueue("Message 1")
+q.enqueue("Message 2")
+q.enqueue("Message 3")
+q.display()  # ['Message 1', 'Message 2', 'Message 3']
+
+print(q.dequeue())  # Message 1
+q.display()  # ['Message 2', 'Message 3']</code></pre>
+
+        <h3>Q4. Applications of Queue <span class="vvi">⭐VVI</span></h3>
+        <ul>
+            <li>CPU scheduling (Round-robin, FCFS).</li>
+            <li>Printer queue for documents.</li>
+            <li>Message queues in chat systems.</li>
+            <li>Data buffering (IO operations).</li>
+            <li>Breadth First Search (BFS) in graphs.</li>
+        </ul>
+
+        <h3>Q5. Variants of Queue <span class="vvi">⭐VVI</span></h3>
+        <ul>
+            <li>Circular Queue → Last position connects back to first.</li>
+            <li>Double Ended Queue (Deque) → Insertion/deletion from both ends.</li>
+            <li>Priority Queue → Elements served based on priority, not position.</li>
+        </ul>
+
+        <h3>Q6. Summary</h3>
+        <ul>
+            <li>Queue → FIFO principle.</li>
+            <li>Operations: enqueue (insert), dequeue (remove), display.</li>
+            <li>Strongly used in OS, networking, scheduling, and real-life systems.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Recursion</h2>
+        
+        <h3>Q1. What is Recursion? <span class="vvi">⭐VVI</span></h3>
+        <p>Recursion is a process in which a function calls itself directly or indirectly to solve a problem.</p>
+        <p>A recursive function has:</p>
+        <ul>
+            <li>Base Case → Terminates recursion.</li>
+            <li>Recursive Case → Function calls itself with a smaller subproblem.</li>
+        </ul>
+
+        <h3>Q2. Properties of Recursion</h3>
+        <ol>
+            <li>Every recursive function must have a base case.</li>
+            <li>Each recursive call reduces the problem size.</li>
+            <li>Uses runtime stack to store function calls.</li>
+            <li>Recursion may lead to overhead (memory + time).</li>
+            <li>Some problems (like factorial, Fibonacci) are naturally recursive.</li>
+        </ol>
+
+        <h3>Q3. Recursive Function – Factorial <span class="vvi">⭐VVI</span></h3>
+        <pre><code>def factorial(n):
+    if n == 0 or n == 1:   # Base case
+        return 1
+    return n * factorial(n-1)  # Recursive case
+
+print(factorial(5))  # Output: 120</code></pre>
+
+        <h3>Q4. Recursive Call Stack (Example with factorial(3))</h3>
+        <p>factorial(3)</p>
+        <p> → 3 * factorial(2)</p>
+        <p>       → 2 * factorial(1)</p>
+        <p>             → 1 (base case)</p>
+        <p>Unwinding:</p>
+        <p>factorial(1) = 1</p>
+        <p>factorial(2) = 2 * 1 = 2</p>
+        <p>factorial(3) = 3 * 2 = 6</p>
+
+        <h3>Q5. Fibonacci Sequence (Recursive) <span class="vvi">⭐VVI</span></h3>
+        <pre><code>def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+for i in range(6):
+    print(fibonacci(i), end=" ")
+# Output: 0 1 1 2 3 5</code></pre>
+
+        <h3>Q6. How Recursion Works – Runtime Stack</h3>
+        <ul>
+            <li>Each function call is pushed onto the runtime stack.</li>
+            <li>When a base case is reached, results are returned back.</li>
+            <li>Functions are popped from stack one by one during return.</li>
+        </ul>
+
+        <h3>Q7. Recursive Application – Binary Search <span class="vvi">⭐VVI</span></h3>
+        <pre><code>def binary_search(arr, low, high, key):
+    if low > high:
+        return -1
+    mid = (low + high) // 2
+    if arr[mid] == key:
+        return mid
+    elif arr[mid] > key:
+        return binary_search(arr, low, mid-1, key)
+    else:
+        return binary_search(arr, mid+1, high, key)
+
+arr = [10, 20, 30, 40, 50]
+print(binary_search(arr, 0, len(arr)-1, 40))  # Output: 3</code></pre>
+
+        <h3>Q8. Recursive Application – Towers of Hanoi <span class="vvi">⭐VVI</span></h3>
+        <pre><code>def towers_of_hanoi(n, source, target, auxiliary):
+    if n == 1:
+        print("Move disk 1 from", source, "to", target)
+        return
+    towers_of_hanoi(n-1, source, auxiliary, target)
+    print("Move disk", n, "from", source, "to", target)
+    towers_of_hanoi(n-1, auxiliary, target, source)
+
+towers_of_hanoi(3, "A", "C", "B")
+# Output (for 3 disks):
+# Move disk 1 from A to C  
+# Move disk 2 from A to B  
+# Move disk 1 from C to B  
+# Move disk 3 from A to C  
+# Move disk 1 from B to A  
+# Move disk 2 from B to C  
+# Move disk 1 from A to C</code></pre>
+
+        <h3>Q9. Summary</h3>
+        <ul>
+            <li>Recursion = Function calling itself.</li>
+            <li>Requires base case + recursive case.</li>
+            <li>Uses runtime stack internally.</li>
+            <li>Applications: Factorial, Fibonacci, Binary Search, Towers of Hanoi, Tree Traversals.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Queue (FIFO – First In First Out) (Continued)</h2>
+        
+        <h3>Q1. What is a Queue? <span class="vvi">⭐VVI</span></h3>
+        <p>A queue is a linear data structure that follows the FIFO (First In First Out) principle.</p>
+        <p>The first element inserted is the first to be removed.</p>
+        <p>Examples:</p>
+        <ul>
+            <li>Media player playlist.</li>
+            <li>Keyboard buffer queue.</li>
+            <li>Printer queue.</li>
+        </ul>
+
+        <h3>Q2. Queue Implementation using Python List</h3>
+        <pre><code>class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, data):   # Insert at end
+        self.queue.append(data)
+
+    def dequeue(self):         # Remove from front
+        if not self.is_empty():
+            return self.queue.pop(0)
+        return "Queue Underflow"
+
+    def display(self):
+        print(self.queue)
+
+    def is_empty(self):
+        return len(self.queue) == 0</code></pre>
+
+        <h3>Q3. Example – Media Player Queue (FIFO)</h3>
+        <pre><code>q = Queue()
+q.enqueue("Song 1")
+q.enqueue("Song 2")
+q.enqueue("Song 3")
+q.display()   # ['Song 1', 'Song 2', 'Song 3']
+
+print(q.dequeue())  # Song 1 removed
+q.display()         # ['Song 2', 'Song 3']</code></pre>
+
+        <h3>Q4. Priority Queue <span class="vvi">⭐VVI</span></h3>
+        <p>A priority queue is a special type of queue where each element is assigned a priority.</p>
+        <ul>
+            <li>Higher priority elements are served before lower priority elements.</li>
+            <li>If priorities are equal, elements follow normal FIFO order.</li>
+        </ul>
+
+        <h3>Q5. Priority Queue Implementation (Python – using list)</h3>
+        <pre><code>import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.pq = []
+
+    def enqueue(self, priority, data):
+        heapq.heappush(self.pq, (priority, data))
+
+    def dequeue(self):
+        if self.pq:
+            return heapq.heappop(self.pq)
+        return "Queue Underflow"
+
+    def display(self):
+        print(self.pq)
+# Example usage:
+pq = PriorityQueue()
+pq.enqueue(2, "Task A")
+pq.enqueue(1, "Task B")
+pq.enqueue(3, "Task C")
+pq.display()  # [(1, 'Task B'), (2, 'Task A'), (3, 'Task C')]
+
+print(pq.dequeue())  # (1, 'Task B')</code></pre>
+
+        <h3>Q6. Applications of Priority Queue</h3>
+        <ul>
+            <li>CPU scheduling (process priority).</li>
+            <li>Networking (packet priority).</li>
+            <li>Event-driven simulation systems.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Tree Data Structure</h2>
+        
+        <h3>Q1. What is a Tree Data Structure? <span class="vvi">⭐VVI</span></h3>
+        <p>A tree is a non-linear hierarchical data structure consisting of nodes connected by edges.</p>
+        <ul>
+            <li>Top node → Root.</li>
+            <li>Nodes may have child nodes forming levels.</li>
+        </ul>
+        <p>Examples:</p>
+        <ul>
+            <li>File explorer / folder structure.</li>
+            <li>Domain Name Server (DNS) hierarchy.</li>
+        </ul>
+
+        <h3>Q2. Tree Terminologies <span class="vvi">⭐VVI</span></h3>
+        <ul>
+            <li>Root → Topmost node.</li>
+            <li>Parent → Node that has child(ren).</li>
+            <li>Child → Node derived from a parent.</li>
+            <li>Leaf Node → Node with no children.</li>
+            <li>Sibling → Nodes with same parent.</li>
+            <li>Height of Tree → Longest path from root to leaf.</li>
+            <li>Depth of Node → Distance from root to that node.</li>
+            <li>Degree of Node → Number of children.</li>
+            <li>Subtree → Tree formed by a node and its descendants.</li>
+        </ul>
+
+        <h3>Q3. Tree Node Representation in Python</h3>
+        <pre><code>class Node:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None</code></pre>
+
+        <h3>Q4. Binary Tree <span class="vvi">⭐VVI</span></h3>
+        <p>A tree where each node has at most 2 children (left and right).</p>
+
+        <h3>Q5. Binary Search Tree (BST) <span class="vvi">⭐VVI</span></h3>
+        <p>A binary tree with special ordering property:</p>
+        <ul>
+            <li>Left child < Parent.</li>
+            <li>Right child > Parent.</li>
+        </ul>
+        <p>Used for fast searching, insertion, and deletion.</p>
+
+        <h3>Q6. Properties of BST</h3>
+        <ol>
+            <li>Inorder traversal of BST gives sorted order.</li>
+            <li>Search, Insertion, Deletion average case: O(log n).</li>
+            <li>Worst case (skewed tree): O(n).</li>
+        </ol>
+
+        <h3>Q7. Implementation – Insertion in BST</h3>
+        <pre><code>def insert(root, key):
+    if root is None:
+        return Node(key)
+    if key < root.key:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+    return root</code></pre>
+
+        <h3>Q8. Implementation – Search in BST</h3>
+        <pre><code>def search(root, key):
+    if root is None or root.key == key:
+        return root
+    if key < root.key:
+        return search(root.left, key)
+    return search(root.right, key)</code></pre>
+
+        <h3>Q9. Implementation – Deletion in BST <span class="vvi">⭐VVI</span></h3>
+        <pre><code>def delete(root, key):
+    if root is None:
+        return root
+    if key < root.key:
+        root.left = delete(root.left, key)
+    elif key > root.key:
+        root.right = delete(root.right, key)
+    else:
+        if root.left is None:
+            return root.right
+        elif root.right is None:
+            return root.left
+        temp = min_value(root.right)
+        root.key = temp.key
+        root.right = delete(root.right, temp.key)
+    return root
+
+def min_value(node):
+    current = node
+    while current.left is not None:
+        current = current.left
+    return current</code></pre>
+
+        <h3>Q10. Tree Traversals <span class="vvi">⭐VVI</span></h3>
+        <p>Inorder (L, Root, R): Left → Root → Right</p>
+        <pre><code>def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.key, end=" ")
+        inorder(root.right)</code></pre>
+        <p>Preorder (Root, L, R): Root → Left → Right</p>
+        <pre><code>def preorder(root):
+    if root:
+        print(root.key, end=" ")
+        preorder(root.left)
+        preorder(root.right)</code></pre>
+        <p>Postorder (L, R, Root): Left → Right → Root</p>
+        <pre><code>def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.key, end=" ")</code></pre>
+
+        <h3>Q11. Applications of Trees</h3>
+        <ul>
+            <li>File systems (folders/files).</li>
+            <li>Databases (indexing).</li>
+            <li>Networking (DNS hierarchy).</li>
+            <li>Expression evaluation (expression trees).</li>
+            <li>Routing algorithms.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📘 Notes on Tree Traversals and Applications</h2>
+        
+        <h3>Q1. Explain Depth-First Traversal (DFS). <span class="vvi">⭐ VVI</span></h3>
+        <p>Answer:</p>
+        <ul>
+            <li>DFS explores as far as possible along each branch before backtracking.</li>
+            <li>Types:
+                <ol>
+                    <li>Inorder Traversal (Left → Root → Right)</li>
+                    <li>Preorder Traversal (Root → Left → Right)</li>
+                    <li>Postorder Traversal (Left → Right → Root)</li>
+                </ol>
+            </li>
+            <li>Example (Tree Traversal):</li>
+            <pre>        A
+       / \
+      B   C
+     / \
+    D   E</pre>
+            <li>Inorder: D B E A C</li>
+            <li>Preorder: A B D E C</li>
+            <li>Postorder: D E B C A</li>
+        </ul>
+
+        <h3>Q2. Explain Breadth-First Traversal (BFS). ⭐</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>BFS visits nodes level by level (top to bottom, left to right).</li>
+            <li>Implemented using a queue.</li>
+            <li>Example:</li>
+            <pre>        A
+       / \
+      B   C
+     / \
+    D   E</pre>
+            <li>BFS Order: A B C D E</li>
+        </ul>
+
+        <h3>Q3. Applications of Trees in Expression Evaluation. <span class="vvi">⭐ VVI</span></h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Trees (specifically Expression Trees) are used to evaluate arithmetic expressions.</li>
+            <li>Operands → Stored in leaf nodes.</li>
+            <li>Operators → Stored in internal nodes.</li>
+            <li>Example Expression: (A + B) * (C - D)</li>
+            <li>Expression Tree:</li>
+            <pre>        *
+       / \
+      +   -
+     / \ / \
+    A  B C  D</pre>
+            <li>Evaluations:</li>
+            <li>Inorder: A + B * C - D</li>
+            <li>Preorder: * + A B - C D</li>
+            <li>Postorder: A B + C D - *</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📘 Notes on Hashing</h2>
+        
+        <h3>Q1. Introduction to Hashing. <span class="vvi">⭐ VVI</span></h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Hashing is a technique used to map data (keys) to a fixed-size table (hash table) using a hash function.</li>
+            <li>Purpose: Fast insertion, deletion, and searching (O(1) average case).</li>
+        </ul>
+
+        <h3>Q2. Hashing - Perfect Hashing Functions.</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>A perfect hash function is one that maps all keys to unique slots without any collision.</li>
+            <li>Example: If keys = {11, 22, 33}, function h(k) = k % 11 can be a perfect hash.</li>
+        </ul>
+
+        <h3>Q3. Hash Table.</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>A hash table is a data structure that stores key-value pairs.</li>
+            <li>Uses a hash function to compute an index for each key.</li>
+            <li>Supports operations:</li>
+            <ul>
+                <li>Insert → Add new key-value.</li>
+                <li>Search → Find a value using its key.</li>
+                <li>Delete → Remove a key-value pair.</li>
+            </ul>
+        </ul>
+
+        <h3>Q4. Hash Functions. ⭐</h3>
+        <p>Answer:</p>
+        <ul>
+            <li>A hash function maps a key to an index in the hash table.</li>
+            <li>Good hash function properties:</li>
+            <ul>
+                <li>Simple & fast.</li>
+                <li>Uniform distribution.</li>
+                <li>Minimizes collisions.</li>
+            </ul>
+            <li>Examples:</li>
+            <ol>
+                <li>Division Method → h(k) = k % m</li>
+                <li>Multiplication Method → h(k) = floor(m * (k * A mod 1))</li>
+            </ol>
+        </ul>
+
+        <h3>Q5. Hash Operations.</h3>
+        <p>Answer:</p>
+        <ol>
+            <li>Insert(key, value): Place key in slot h(key).</li>
+            <li>Search(key): Look at index h(key).</li>
+            <li>Delete(key): Remove from hash table.</li>
+        </ol>
+
+        <h3>Q6. Hash Collision. <span class="vvi">⭐ VVI</span></h3>
+        <p>Answer:</p>
+        <ul>
+            <li>Collision: When two keys map to the same slot.</li>
+            <li>Collision Resolution Techniques:</li>
+            <ol>
+                <li>Chaining → Store multiple keys in a linked list at same slot.</li>
+                <li>Open Addressing → Find another empty slot.</li>
+                <ul>
+                    <li>Linear Probing</li>
+                    <li>Quadratic Probing</li>
+                    <li>Double Hashing</li>
+                </ul>
+            </ol>
+        </ul>
+
+        <h3>Q7. Applications of Hashing. <span class="vvi">⭐ VVI</span></h3>
+        <p>Answer:</p>
+        <ol>
+            <li>Compiler symbol tables.</li>
+            <li>Password authentication (hash storage).</li>
+            <li>Caches (e.g., CPU cache, database cache).</li>
+            <li>Indexing in databases.</li>
+            <li>Cryptography (SHA, MD5).</li>
+        </ol>
+    </div>
+
+    <p class="action">Krish, yeh site copy-paste kar browser me khol. Har section scan kar, code run kar. Weakness: Practice BST deletion 5 times today. Billionaire execution: Build ek small app using these DS for your ShadowWhisper platform. Hustle ab! 💥</p>
+
+    <div class="nebula"></div>
+    <div class="progress-bar"></div>
+    <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </div>
+    <div class="search-container" id="search-container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search data structures..." id="search-input">
+            <button class="search-btn" onclick="performSearch()">🔍</button>
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+
+    <div class="reading-stats" id="reading-stats">
+        <div class="stat-item">
+            <span class="stat-label">Sections Read:</span>
+            <span class="stat-value" id="sections-read">0/0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Reading Time:</span>
+            <span class="stat-value" id="reading-time">0 min</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Progress:</span>
+            <span class="stat-value" id="reading-progress">0%</span>
+        </div>
+    </div>
+
+    <div class="font-controls">
+        <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease Font Size">A-</button>
+        <button class="font-btn" onclick="changeFontSize(1)" title="Increase Font Size">A+</button>
+    </div>
+
+    <div class="theme-toggle">
+        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode"></button>
+    </div>
+
+    <div class="xp-system">
+        <div>Level 1 DSA Explorer</div>
+        <div class="xp-bar">
+            <div class="xp-fill" id="xp-fill"></div>
+        </div>
+        <div id="xp-text">0 / 100 XP</div>
+    </div>
+
+    <div class="achievement-popup" id="achievement-popup">
+        <h3 id="achievement-title">🎉 Achievement Unlocked!</h3>
+        <p id="achievement-desc">Great job!</p>
+    </div>
+
+    <div class="ai-assistant" onclick="toggleAIChat()">
+        🤖
+    </div>
+
+    <div class="ai-chat" id="ai-chat">
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-message ai">Hello! I'm your DSA AI assistant. How can I help you understand Data Structures today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Ask me anything about DSA..." onkeydown="handleChatKey(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <div class="voice-synthesis">
+        <button class="voice-btn" id="voice-btn" onclick="toggleVoice()" title="Text-to-Speech">
+            🔊
+        </button>
+        <button class="voice-btn" onclick="showGestureHint()" title="Gesture Controls">
+            👋
+        </button>
+    </div>
+
+    <div class="gesture-hint" id="gesture-hint">
+        <div class="gesture-icon">👆</div>
+        <h3>Gesture Controls</h3>
+        <p>Swipe up: Next section<br>Swipe down: Previous section<br>Pinch: Zoom<br>Double tap: Toggle navigation</p>
+        <button onclick="hideGestureHint()" style="margin-top: 10px; background: #06b6d4; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer;">Got it!</button>
+    </div>
+
+    <div class="focus-timer">
+        <div class="timer-display" id="timer-display">25:00</div>
+        <div class="timer-controls">
+            <button class="timer-btn" onclick="startTimer(25)">25min</button>
+            <button class="timer-btn" onclick="startTimer(15)">15min</button>
+            <button class="timer-btn" onclick="startTimer(5)">5min</button>
+            <button class="timer-btn" id="timer-pause" onclick="pauseTimer()">Pause</button>
+        </div>
+    </div>
+    <div class="floating-toc" id="floating-toc">
+        <div class="toc-close" onclick="hideTOC()" title="Close Navigation"></div>
+        <h4>🚀 Quick Nav</h4>
+        <ul id="toc-list">
+            <!-- TOC will be populated by JS -->
+        </ul>
+    </div>
+    <div class="stars">
+        <!-- Falling Stars -->
+        <div class="star" style="left: 5%; animation-delay: 0s;"></div>
+        <div class="star" style="left: 15%; animation-delay: 1s;"></div>
+        <div class="star" style="left: 25%; animation-delay: 2s;"></div>
+        <div class="star" style="left: 35%; animation-delay: 3s;"></div>
+        <div class="star" style="left: 45%; animation-delay: 4s;"></div>
+        <div class="star" style="left: 55%; animation-delay: 5s;"></div>
+        <div class="star" style="left: 65%; animation-delay: 6s;"></div>
+        <div class="star" style="left: 75%; animation-delay: 7s;"></div>
+        <div class="star" style="left: 85%; animation-delay: 8s;"></div>
+        <div class="star" style="left: 95%; animation-delay: 9s;"></div>
+        <div class="star" style="left: 10%; animation-delay: 10s;"></div>
+        <div class="star" style="left: 20%; animation-delay: 11s;"></div>
+        <div class="star" style="left: 30%; animation-delay: 12s;"></div>
+        <div class="star" style="left: 40%; animation-delay: 13s;"></div>
+        <div class="star" style="left: 50%; animation-delay: 14s;"></div>
+        <div class="star" style="left: 60%; animation-delay: 0.5s;"></div>
+        <div class="star" style="left: 70%; animation-delay: 1.5s;"></div>
+        <div class="star" style="left: 80%; animation-delay: 2.5s;"></div>
+        <div class="star" style="left: 90%; animation-delay: 3.5s;"></div>
+        <div class="star" style="left: 2%; animation-delay: 4.5s;"></div>
+
+        <!-- Twinkling Stars -->
+        <div class="twinkle-star" style="top: 10%; left: 20%;"></div>
+        <div class="twinkle-star" style="top: 20%; left: 80%;"></div>
+        <div class="twinkle-star" style="top: 30%; left: 40%;"></div>
+        <div class="twinkle-star" style="top: 40%; left: 60%;"></div>
+        <div class="twinkle-star" style="top: 50%; left: 10%;"></div>
+        <div class="twinkle-star" style="top: 60%; left: 90%;"></div>
+        <div class="twinkle-star" style="top: 70%; left: 30%;"></div>
+        <div class="twinkle-star" style="top: 80%; left: 70%;"></div>
+        <div class="twinkle-star" style="top: 15%; left: 50%;"></div>
+        <div class="twinkle-star" style="top: 25%; left: 15%;"></div>
+        <div class="twinkle-star" style="top: 35%; left: 85%;"></div>
+        <div class="twinkle-star" style="top: 45%; left: 25%;"></div>
+        <div class="twinkle-star" style="top: 55%; left: 75%;"></div>
+        <div class="twinkle-star" style="top: 65%; left: 5%;"></div>
+        <div class="twinkle-star" style="top: 75%; left: 95%;"></div>
+
+        <!-- Shooting Stars -->
+        <div class="shooting-star" style="top: 20%; left: 10%; animation-delay: 5s;"></div>
+        <div class="shooting-star" style="top: 40%; left: 70%; animation-delay: 15s;"></div>
+        <div class="shooting-star" style="top: 60%; left: 30%; animation-delay: 25s;"></div>
+        <div class="shooting-star" style="top: 10%; left: 50%; animation-delay: 35s;"></div>
+        <div class="shooting-star" style="top: 30%; left: 90%; animation-delay: 45s;"></div>
+
+        <!-- Floating Particles -->
+        <div class="particle" style="left: 8%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 18%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 28%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 38%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 48%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 58%; animation-delay: 10s;"></div>
+        <div class="particle" style="left: 68%; animation-delay: 12s;"></div>
+        <div class="particle" style="left: 78%; animation-delay: 14s;"></div>
+        <div class="particle" style="left: 88%; animation-delay: 16s;"></div>
+        <div class="particle" style="left: 98%; animation-delay: 18s;"></div>
+    </div>
+
+    <script>
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Add animation classes to sections
+        document.querySelectorAll('.section').forEach((section, index) => {
+            if (index % 4 === 0) {
+                section.classList.add('fade-in');
+            } else if (index % 4 === 1) {
+                section.classList.add('slide-left');
+            } else if (index % 4 === 2) {
+                section.classList.add('scale-in');
+            } else {
+                section.classList.add('rotating-border');
+            }
+            observer.observe(section);
+        });
+
+        // Add text reveal to headings
+        document.querySelectorAll('h2, h3').forEach(heading => {
+            heading.classList.add('text-reveal');
+            observer.observe(heading);
+        });
+
+        // Parallax effect
+        let ticking = false;
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            document.querySelector('.stars').style.setProperty('--scroll-y', scrollY * 0.2 + 'px');
+            document.querySelector('.nebula').style.setProperty('--scroll-y', scrollY * 0.1 + 'px');
+            ticking = false;
+        }
+
+        // Progress bar and scroll effects
+        function updateScrollEffects() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+
+            // Progress bar
+            document.querySelector('.progress-bar').style.transform = `scaleX(${scrollPercent})`;
+
+            // Scroll to top button
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (scrollTop > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+
+            // Enhanced TOC visibility - now completely controlled by user
+            // updateTOCVisibility(); // Removed auto-show functionality
+
+            // Highlight current section in TOC
+            const sections = document.querySelectorAll('.section');
+            let currentSection = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id || section.querySelector('h2')?.textContent.toLowerCase().replace(/\s+/g, '-');
+                    section.classList.add('revealed');
+                } else {
+                    section.classList.remove('revealed');
+                }
+            });
+
+            document.querySelectorAll('.floating-toc a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            updateParallax();
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+
+        // Generate TOC
+        function generateTOC() {
+            const tocList = document.getElementById('toc-list');
+            document.querySelectorAll('.section h2').forEach((h2, index) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                const id = `section-${index}`;
+                h2.parentElement.id = id;
+                a.href = `#${id}`;
+                a.textContent = h2.textContent.replace('📘', '').trim();
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        }
+
+        generateTOC();
+
+        // Toggle TOC function
+        function toggleTOC() {
+            const toc = document.getElementById('floating-toc');
+            const trigger = document.querySelector('.nav-trigger');
+            toc.classList.toggle('visible');
+            trigger.classList.toggle('active');
+        }
+
+        // Hide TOC function
+        function hideTOC() {
+            const toc = document.getElementById('floating-toc');
+            const trigger = document.querySelector('.nav-trigger');
+            toc.classList.remove('visible');
+            trigger.classList.remove('active');
+        }
+
+        // Enhanced TOC visibility - now completely controlled by user
+        let tocVisible = false;
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some dynamic star creation
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.top = Math.random() * 50 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDelay = '0s';
+            document.querySelector('.stars').appendChild(star);
+            setTimeout(() => star.remove(), 3000);
+        }
+
+        // Create occasional shooting stars
+        setInterval(createShootingStar, 8000 + Math.random() * 12000);
+
+        // Add mouse interaction for extra flair
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            document.querySelector('.nebula').style.transform = `translateY(calc(var(--scroll-y) * 0.3)) translateX(${mouseX * 20 - 10}px)`;
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp' && e.ctrlKey) {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+            if (e.key === 'ArrowDown' && e.ctrlKey) {
+                e.preventDefault();
+                window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+            }
+            if (e.key === 'n' && e.ctrlKey) {
+                e.preventDefault();
+                toggleTOC();
+            }
+            if (e.key === 'Escape') {
+                hideTOC();
+            }
+            if (e.key === 'f' && e.ctrlKey) {
+                e.preventDefault();
+                toggleSearch();
+            }
+            if (e.key === 's' && e.ctrlKey) {
+                e.preventDefault();
+                toggleStats();
+            }
+        });
+
+        // Search functionality
+        let searchVisible = false;
+        function toggleSearch() {
+            const searchContainer = document.getElementById('search-container');
+            searchContainer.classList.toggle('visible');
+            searchVisible = !searchVisible;
+            if (searchVisible) {
+                document.getElementById('search-input').focus();
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const resultsDiv = document.getElementById('search-results');
+
+            if (!query) {
+                resultsDiv.classList.remove('show');
+                return;
+            }
+
+            // Clear previous highlights
+            clearHighlights();
+
+            const sections = document.querySelectorAll('.section');
+            const results = [];
+
+            sections.forEach((section, index) => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    results.push({
+                        title: section.querySelector('h2')?.textContent || `Section ${index + 1}`,
+                        element: section,
+                        index: index
+                    });
+                    highlightText(section, query);
+                }
+            });
+
+            displaySearchResults(results);
+        }
+
+        function highlightText(element, query) {
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+            let node;
+            while (node = walker.nextNode()) {
+                const text = node.textContent;
+                const index = text.toLowerCase().indexOf(query.toLowerCase());
+                if (index !== -1) {
+                    const before = text.substring(0, index);
+                    const match = text.substring(index, index + query.length);
+                    const after = text.substring(index + query.length);
+
+                    const span = document.createElement('span');
+                    span.innerHTML = `${before}<span class="highlight">${match}</span>${after}`;
+                    node.parentNode.replaceChild(span, node);
+                }
+            }
+        }
+
+        function clearHighlights() {
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                highlight.outerHTML = highlight.innerHTML;
+            });
+        }
+
+        function displaySearchResults(results) {
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = '';
+
+            if (results.length === 0) {
+                resultsDiv.innerHTML = '<div class="search-result-item">No results found</div>';
+            } else {
+                results.forEach(result => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.textContent = result.title;
+                    item.onclick = () => {
+                        result.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        resultsDiv.classList.remove('show');
+                    };
+                    resultsDiv.appendChild(item);
+                });
+            }
+
+            resultsDiv.classList.add('show');
+        }
+
+        // Reading stats
+        let statsVisible = false;
+        let sectionsRead = new Set();
+        let startTime = Date.now();
+
+        function toggleStats() {
+            const stats = document.getElementById('reading-stats');
+            stats.classList.toggle('visible');
+            statsVisible = !statsVisible;
+        }
+
+        function updateReadingStats() {
+            const sections = document.querySelectorAll('.section');
+            const totalSections = sections.length;
+            const currentSection = getCurrentSection();
+
+            if (currentSection !== null && !sectionsRead.has(currentSection)) {
+                sectionsRead.add(currentSection);
+            }
+
+            const sectionsReadCount = sectionsRead.size;
+            const progressPercent = Math.round((sectionsReadCount / totalSections) * 100);
+            const readingTime = Math.round((Date.now() - startTime) / 60000); // minutes
+
+            document.getElementById('sections-read').textContent = `${sectionsReadCount}/${totalSections}`;
+            document.getElementById('reading-time').textContent = `${readingTime} min`;
+            document.getElementById('reading-progress').textContent = `${progressPercent}%`;
+
+            // Check for milestones
+            checkMilestones(sectionsReadCount, progressPercent);
+        }
+
+        function getCurrentSection() {
+            const sections = document.querySelectorAll('.section');
+            const scrollY = window.scrollY + window.innerHeight / 2;
+
+            for (let i = 0; i < sections.length; i++) {
+                const rect = sections[i].getBoundingClientRect();
+                const top = rect.top + window.scrollY;
+                const bottom = rect.bottom + window.scrollY;
+
+                if (scrollY >= top && scrollY <= bottom) {
+                    return i;
+                }
+            }
+            return null;
+        }
+
+        function checkMilestones(sectionsRead, progress) {
+            const milestones = [
+                { threshold: 1, message: "First section completed! 🚀" },
+                { threshold: 5, message: "5 sections down! You're on fire! 🔥" },
+                { threshold: 10, message: "10 sections mastered! DSA champion! 🏆" },
+                { threshold: 25, message: "25% progress! Keep going! 💪" },
+                { threshold: 50, message: "Halfway there! Amazing work! 🎯" },
+                { threshold: 75, message: "75% complete! Almost done! 🎉" },
+                { threshold: 100, message: "100% Complete! DSA Master! 🌟" }
+            ];
+
+            milestones.forEach(milestone => {
+                if (sectionsRead === milestone.threshold || progress === milestone.threshold) {
+                    showMilestone(milestone.message);
+                }
+            });
+        }
+
+        function showMilestone(message) {
+            const notification = document.getElementById('milestone-notification');
+            document.getElementById('milestone-message').textContent = message;
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Font size controls
+        let currentFontSize = 100;
+        function changeFontSize(delta) {
+            currentFontSize += delta * 10;
+            currentFontSize = Math.max(80, Math.min(150, currentFontSize));
+            document.body.style.fontSize = `${currentFontSize}%`;
+
+            // Save to localStorage
+            localStorage.setItem('fontSize', currentFontSize);
+        }
+
+        // Theme toggle
+        let isDarkMode = true;
+        function toggleTheme() {
+            const body = document.body;
+            const themeBtn = document.getElementById('theme-btn');
+
+            isDarkMode = !isDarkMode;
+            body.classList.toggle('dark-mode');
+            themeBtn.classList.toggle('dark');
+
+            // Save to localStorage
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Load saved preferences
+        function loadPreferences() {
+            const savedFontSize = localStorage.getItem('fontSize');
+            const savedDarkMode = localStorage.getItem('darkMode');
+
+            if (savedFontSize) {
+                currentFontSize = parseInt(savedFontSize);
+                document.body.style.fontSize = `${currentFontSize}%`;
+            }
+
+            if (savedDarkMode !== null) {
+                isDarkMode = savedDarkMode === 'true';
+                if (!isDarkMode) {
+                    document.body.classList.add('dark-mode');
+                    document.getElementById('theme-btn').classList.add('dark');
+                }
+            }
+        }
+
+        // Initialize
+        loadPreferences();
+        updateReadingStats();
+
+        // Update stats on scroll
+        window.addEventListener('scroll', () => {
+            updateReadingStats();
+        });
+
+        // Search input handling
+        document.getElementById('search-input').addEventListener('input', performSearch);
+        document.getElementById('search-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // XP and Achievement System
+        let currentXP = parseInt(localStorage.getItem('currentXP') || '0');
+        let currentLevel = Math.floor(currentXP / 100) + 1;
+        let achievements = JSON.parse(localStorage.getItem('achievements') || '[]');
+
+        function updateXP() {
+            const xpFill = document.getElementById('xp-fill');
+            const xpText = document.getElementById('xp-text');
+            const levelXP = currentXP % 100;
+            const progressPercent = (levelXP / 100) * 100;
+
+            xpFill.style.width = progressPercent + '%';
+            xpText.textContent = levelXP + ' / 100 XP';
+            document.querySelector('.xp-system div:first-child').textContent = 'Level ' + currentLevel + ' DSA Explorer';
+
+            localStorage.setItem('currentXP', currentXP);
+        }
+
+        function addXP(amount) {
+            currentXP += amount;
+            const oldLevel = currentLevel;
+            currentLevel = Math.floor(currentXP / 100) + 1;
+
+            updateXP();
+
+            if (currentLevel > oldLevel) {
+                showAchievement('🎉 Level Up!', 'You reached Level ' + currentLevel + '!');
+            }
+        }
+
+        function showAchievement(title, description) {
+            const popup = document.getElementById('achievement-popup');
+            document.getElementById('achievement-title').textContent = title;
+            document.getElementById('achievement-desc').textContent = description;
+            popup.classList.add('show');
+
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 3000);
+
+            if (!achievements.includes(title)) {
+                achievements.push(title);
+                localStorage.setItem('achievements', JSON.stringify(achievements));
+            }
+        }
+
+        // Algorithm Visualizer Functions
+        function showArrayDemo() {
+            const canvas = document.getElementById('array-viz-canvas');
+            canvas.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <div style="width: 40px; height: 40px; background: #06b6d4; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">1</div>
+                    <div style="width: 40px; height: 40px; background: #06b6d4; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">2</div>
+                    <div style="width: 40px; height: 40px; background: #06b6d4; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">3</div>
+                    <div style="width: 40px; height: 40px; background: #06b6d4; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">4</div>
+                    <div style="width: 40px; height: 40px; background: #06b6d4; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">5</div>
+                </div>
+                <p style="text-align: center; color: #10b981;">✅ Contiguous Memory<br>⚡ O(1) Access<br>📏 Fixed Size</p>
+            `;
+            addXP(10);
+        }
+
+        function showLinkedListDemo() {
+            const canvas = document.getElementById('array-viz-canvas');
+            canvas.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 40px; height: 40px; background: #f59e0b; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">1</div>
+                        <div style="margin: 0 10px; color: #f59e0b;">→</div>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 40px; height: 40px; background: #f59e0b; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">2</div>
+                        <div style="margin: 0 10px; color: #f59e0b;">→</div>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 40px; height: 40px; background: #f59e0b; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">3</div>
+                        <div style="margin: 0 10px; color: #f59e0b;">→</div>
+                    </div>
+                    <div style="width: 40px; height: 40px; background: #dc2626; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">NULL</div>
+                </div>
+                <p style="text-align: center; color: #f59e0b;">🔗 Dynamic Memory<br>⚡ O(1) Insert/Delete<br>📏 Variable Size</p>
+            `;
+            addXP(10);
+        }
+
+        function compareOperations() {
+            const canvas = document.getElementById('array-viz-canvas');
+            canvas.innerHTML = `
+                <table style="width: 100%; border-collapse: collapse; color: #f1f5f9;">
+                    <tr style="background: rgba(6, 182, 212, 0.2);">
+                        <th style="padding: 10px; border: 1px solid #334155;">Operation</th>
+                        <th style="padding: 10px; border: 1px solid #334155;">Array</th>
+                        <th style="padding: 10px; border: 1px solid #334155;">Linked List</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #334155;">Access by Index</td>
+                        <td style="padding: 10px; border: 1px solid #334155; color: #10b981;">O(1)</td>
+                        <td style="padding: 10px; border: 1px solid #334155; color: #dc2626;">O(n)</td>
+                    </tr>
+                    <tr style="background: rgba(245, 158, 11, 0.1);">
+                        <td style="padding: 10px; border: 1px solid #334155;">Insert/Delete at End</td>
+                        <td style="padding: 10px; border: 1px solid #334155; color: #dc2626;">O(n)</td>
+                        <td style="padding: 10px; border: 1px solid #334155; color: #10b981;">O(1)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #334155;">Memory Usage</td>
+                        <td style="padding: 10px; border: 1px solid #334155;">Fixed</td>
+                        <td style="padding: 10px; border: 1px solid #334155;">Dynamic + Pointers</td>
+                    </tr>
+                </table>
+            `;
+            addXP(15);
+        }
+
+        // Flashcard System
+        let currentCardIndex = 0;
+        const flashcards = document.querySelectorAll('.flashcard');
+
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+            const front = card.querySelector('.flashcard-front');
+            const back = card.querySelector('.flashcard-back');
+
+            if (card.classList.contains('flipped')) {
+                front.classList.remove('show');
+                back.classList.add('show');
+            } else {
+                back.classList.remove('show');
+                front.classList.add('show');
+            }
+            addXP(5);
+        }
+
+        function nextCard() {
+            flashcards[currentCardIndex].style.display = 'none';
+            currentCardIndex = (currentCardIndex + 1) % flashcards.length;
+            flashcards[currentCardIndex].style.display = 'block';
+            updateCardCounter();
+        }
+
+        function previousCard() {
+            flashcards[currentCardIndex].style.display = 'none';
+            currentCardIndex = currentCardIndex === 0 ? flashcards.length - 1 : currentCardIndex - 1;
+            flashcards[currentCardIndex].style.display = 'block';
+            updateCardCounter();
+        }
+
+        function updateCardCounter() {
+            document.getElementById('card-counter').textContent = (currentCardIndex + 1) + ' / ' + flashcards.length;
+        }
+
+        // Initialize flashcards
+        flashcards.forEach((card, index) => {
+            if (index !== 0) card.style.display = 'none';
+        });
+        updateCardCounter();
+
+        // Interactive Code Runner (simplified)
+        function runCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const outputDiv = codeBlock.nextElementSibling;
+            const code = codeBlock.textContent;
+
+            // Simulate code execution with predefined outputs
+            let output = '';
+            if (code.includes('numbers.append(6)')) {
+                output = 'Original array: [1, 2, 3, 4, 5]\nAfter append: [1, 2, 3, 4, 5, 6]\nAfter pop: [1, 2, 3, 4, 5]\nElement at index 2: 3';
+            } else {
+                output = 'Code executed successfully!\nOutput: Hello, DSA World!';
+            }
+
+            outputDiv.textContent = output;
+            outputDiv.style.display = 'block';
+            button.textContent = '✅ Ran';
+            setTimeout(() => {
+                button.textContent = '▶ Run Code';
+            }, 2000);
+            addXP(20);
+        }
+
+        // Progress Heatmap
+        function generateHeatmap() {
+            const grid = document.getElementById('heatmap-grid');
+            const today = new Date();
+            const days = [];
+
+            // Generate last 35 days
+            for (let i = 34; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                days.push(date);
+            }
+
+            days.forEach((day, index) => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'heatmap-day';
+                dayDiv.title = day.toDateString();
+
+                // Simulate study data (in real app, this would come from storage)
+                const studyIntensity = Math.random();
+                if (studyIntensity > 0.7) {
+                    dayDiv.classList.add('active', 'intense');
+                } else if (studyIntensity > 0.4) {
+                    dayDiv.classList.add('active');
+                }
+
+                grid.appendChild(dayDiv);
+            });
+        }
+
+        // AI Chat System
+        function toggleAIChat() {
+            const chat = document.getElementById('ai-chat');
+            chat.classList.toggle('show');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addChatMessage(message, 'user');
+            input.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                const responses = [
+                    "That's a great question! Let me explain...",
+                    "In Data Structures, this concept is crucial because...",
+                    "Think of it this way: arrays are like a fixed bookshelf, while linked lists are like books connected by strings.",
+                    "The time complexity for this operation is O(n) because...",
+                    "Here's a practical example: when you...",
+                    "This is commonly used in algorithms like..."
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addChatMessage(randomResponse, 'ai');
+                addXP(5);
+            }, 1000 + Math.random() * 2000);
+        }
+
+        function addChatMessage(text, type) {
+            const messagesDiv = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${type}`;
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Voice Synthesis
+        let isSpeaking = false;
+        let speechSynthesis = window.speechSynthesis;
+
+        function toggleVoice() {
+            const btn = document.getElementById('voice-btn');
+            if (!btn) {
+                console.error('Voice button not found');
+                return;
+            }
+
+            if (isSpeaking) {
+                speechSynthesis.cancel();
+                btn.classList.remove('playing');
+                isSpeaking = false;
+            } else {
+                speakCurrentSection();
+                btn.classList.add('playing');
+                isSpeaking = true;
+            }
+        }
+
+        function speakCurrentSection() {
+            if (!speechSynthesis) {
+                alert('Speech synthesis is not supported in your browser.');
+                return;
+            }
+
+            const currentSection = getCurrentVisibleSection();
+            if (currentSection) {
+                const text = currentSection.textContent;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.8;
+                utterance.pitch = 1;
+
+                utterance.onend = () => {
+                    const btn = document.getElementById('voice-btn');
+                    if (btn) {
+                        btn.classList.remove('playing');
+                    }
+                    isSpeaking = false;
+                };
+
+                utterance.onerror = () => {
+                    const btn = document.getElementById('voice-btn');
+                    if (btn) {
+                        btn.classList.remove('playing');
+                    }
+                    isSpeaking = false;
+                    alert('Speech synthesis failed. Please try again.');
+                };
+
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function getCurrentVisibleSection() {
+            const sections = document.querySelectorAll('.section');
+            const viewportCenter = window.innerHeight / 2;
+
+            for (let section of sections) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+                    return section;
+                }
+            }
+            return sections[0]; // Default to first section
+        }
+
+        // Gesture Controls
+        function showGestureHint() {
+            document.getElementById('gesture-hint').classList.add('show');
+        }
+
+        function hideGestureHint() {
+            document.getElementById('gesture-hint').classList.remove('show');
+        }
+
+        // Focus Timer
+        let timerInterval;
+        let timerSeconds = 25 * 60; // 25 minutes
+        let isTimerRunning = false;
+
+        function startTimer(minutes) {
+            const display = document.getElementById('timer-display');
+            const pauseBtn = document.getElementById('timer-pause');
+
+            if (!display || !pauseBtn) {
+                console.error('Timer elements not found');
+                return;
+            }
+
+            clearInterval(timerInterval);
+            timerSeconds = minutes * 60;
+            updateTimerDisplay();
+
+            pauseBtn.textContent = 'Pause';
+            pauseBtn.classList.remove('active');
+
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                updateTimerDisplay();
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    showAchievement('⏰ Time\'s Up!', 'Great focus session! Take a break.');
+                    addXP(25);
+                    isTimerRunning = false;
+
+                    // Play notification sound if available
+                    playNotificationSound();
+                }
+            }, 1000);
+
+            isTimerRunning = true;
+        }
+
+        function pauseTimer() {
+            const pauseBtn = document.getElementById('timer-pause');
+            if (!pauseBtn) {
+                console.error('Timer pause button not found');
+                return;
+            }
+
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                pauseBtn.textContent = 'Resume';
+                pauseBtn.classList.add('active');
+                isTimerRunning = false;
+            } else {
+                startTimer(Math.ceil(timerSeconds / 60));
+                pauseBtn.textContent = 'Pause';
+                pauseBtn.classList.remove('active');
+                isTimerRunning = true;
+            }
+        }
+
+        function updateTimerDisplay() {
+            const display = document.getElementById('timer-display');
+            if (!display) {
+                console.error('Timer display not found');
+                return;
+            }
+
+            const minutes = Math.floor(Math.max(0, timerSeconds) / 60);
+            const seconds = Math.max(0, timerSeconds) % 60;
+            display.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+            // Add visual feedback when timer is low
+            if (timerSeconds <= 60 && timerSeconds > 0) {
+                display.style.color = '#dc2626'; // Red for last minute
+            } else if (timerSeconds <= 300 && timerSeconds > 60) {
+                display.style.color = '#f59e0b'; // Orange for last 5 minutes
+            } else {
+                display.style.color = '#06b6d4'; // Default cyan
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerSeconds = 25 * 60; // Reset to 25 minutes
+            updateTimerDisplay();
+            isTimerRunning = false;
+
+            const pauseBtn = document.getElementById('timer-pause');
+            if (pauseBtn) {
+                pauseBtn.textContent = 'Pause';
+                pauseBtn.classList.remove('active');
+            }
+        }
+
+        function playNotificationSound() {
+            // Try to play a notification sound when timer ends
+            try {
+                // Create audio context for notification
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log('Audio notification not supported');
+            }
+        }
+
+        // XP System
+        function addXP(points) {
+            currentXP += points;
+            updateXP();
+            checkLevelUp();
+        }
+
+        function checkLevelUp() {
+            const xpForNextLevel = currentLevel * 100;
+            if (currentXP >= xpForNextLevel) {
+                currentLevel++;
+                showAchievement('🎉 Level Up!', 'You reached level ' + currentLevel + '!');
+            }
+        }
+
+        function showAchievement(title, message) {
+            const popup = document.querySelector('.achievement-popup');
+            const titleEl = popup.querySelector('h3');
+            const messageEl = popup.querySelector('p');
+
+            if (popup && titleEl && messageEl) {
+                titleEl.textContent = title;
+                messageEl.textContent = message;
+                popup.classList.add('show');
+
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                }, 3000);
+            } else {
+                // Fallback alert if popup elements don't exist
+                alert(title + '\n' + message);
+            }
+        }
+
+        // Initialize everything
+        updateXP();
+        generateHeatmap();
+        updateTimerDisplay(); // Initialize timer display
+
+        // Test timer functionality
+        console.log('Timer initialized with display:', document.getElementById('timer-display') ? 'Found' : 'Not found');
+        console.log('Timer pause button:', document.getElementById('timer-pause') ? 'Found' : 'Not found');
+    </script>
+</body>
+</html>
